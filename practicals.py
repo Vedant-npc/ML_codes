@@ -1,13 +1,11 @@
-"""
-Add your lab practicals to this file.
-
-Each entry uses:
-    practical number: {
-        "title": "Practical title",
-        "description": "Optional short description",
-        "code": """Python code here"""
-    }
-"""
+# Add your lab practicals to this file.
+#
+# Each entry uses:
+# practical number: {
+#     "title": "Practical title",
+#     "description": "Optional short description",
+#     "code": "Python code here"
+# }
 
 PRACTICALS = {
     1: {
