@@ -13,12 +13,40 @@ PRACTICALS = {
         "description": "Sample practical. Replace this with your actual lab practical.",
         "code": """# Practical 1: Python Basics
 
-print("Hello World")
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder, StandardScaler
 
-a = 10
-b = 20
 
-print("Addition:", a + b)
+df = pd.read_csv(r"Enter path")
+
+
+print("Original Dataset:")
+print(df.head())
+
+
+print("\nMissing Values Before Preprocessing:")
+print(df.isnull().sum())
+
+
+df["Age"] = df["Age"].fillna(df["Age"].mean())
+df["Embarked"] = df["Embarked"].fillna(df["Embarked"].mode()[0])
+
+
+encoder = LabelEncoder()
+df["Sex"] = encoder.fit_transform(df["Sex"])
+df["Embarked"] = encoder.fit_transform(df["Embarked"])
+
+
+scaler = StandardScaler()
+df["Age"] = scaler.fit_transform(df[["Age"]])
+
+
+print("\nProcessed Dataset:")
+print(df.head())
+
+
+print("\nMissing Values After Preprocessing:")
+print(df[["Age", "Embarked"]].isnull().sum())
 """,
     },
     2: {
